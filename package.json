@@ -1,0 +1,36 @@
+{
+  "name": "atlas-forge-xrpl",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "description": "Native XRPL Testnet rehearsal for Atlas Forge XRPL Test Token (AFXT/AFX). Not an issuance, not a peg.",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "probe": "tsx scripts/00-probe.ts",
+    "fund": "tsx scripts/01-fund.ts",
+    "issue": "tsx scripts/02-issue.ts",
+    "hold": "tsx scripts/03-hold.ts",
+    "dex": "tsx scripts/04-dex-or-amm.ts",
+    "compliance": "tsx scripts/05-compliance.ts",
+    "escrow": "tsx scripts/06-escrow.ts",
+    "clawback": "tsx scripts/07-clawback-freeze.ts",
+    "deny": "tsx scripts/08-deny-paths.ts",
+    "evidence": "tsx scripts/09-write-evidence.ts",
+    "replay": "npm run probe && npm run fund && npm run issue && npm run hold && npm run dex && npm run compliance && npm run escrow && npm run clawback && npm run deny && npm run evidence",
+    "test": "tsx --test test/unit/*.test.ts",
+    "test:integration": "tsx --test test/integration/*.test.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "dotenv": "16.6.1",
+    "xrpl": "5.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "22.17.2",
+    "tsx": "4.20.5",
+    "typescript": "5.9.2"
+  }
+}
