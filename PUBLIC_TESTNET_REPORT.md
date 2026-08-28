@@ -1,9 +1,260 @@
 # PUBLIC_TESTNET_REPORT
 
-**Status:** INCOMPLETE
+**Status:** EXECUTED
 
 **Disclaimer:** issuer is centralized; test token; no peg. Testnet rehearsal only. Not an issuance.
 
 This is a Testnet rehearsal. It is not an issuance, not a peg, not RLUSD, and not regulated securities infrastructure. Faucet XRP is not TVL or AUM. The issuer can freeze and claw back; that is the product.
 
-No transaction hashes have been written yet. None were invented. Run `npm run probe` and the replay scripts; `scripts/09-write-evidence.ts` rewrites this file from `deployments/testnet.json`.
+## Connected node
+
+| Field | Value |
+| --- | --- |
+| probed_at | 2026-08-28T04:21:10.248Z |
+| build_version | 3.3.0 |
+| network_id | 1 |
+| server_state | full |
+| validated_ledger | 20279139 |
+| complete_ledgers | 13073099-20279139 |
+| WSS | wss://s.altnet.rippletest.net:51233 |
+| RPC | https://s.altnet.rippletest.net:51234 |
+| explorer | https://testnet.xrpl.org |
+
+## Amendments
+
+### Enabled on the connected node
+
+- AMM
+- AMMClawback
+- CheckCashMakesTrustLine
+- Checks
+- Clawback
+- Credentials
+- DID
+- DeepFreeze
+- DeletableAccounts
+- DepositAuth
+- DepositPreauth
+- DisallowIncoming
+- DynamicNFT
+- ExpandedSignerList
+- Flow
+- FlowCross
+- FlowSortStrands
+- HardenedValidations
+- ImmediateOfferKilled
+- MPTokensV1
+- MultiSignReserve
+- NFTokenMintOffer
+- NegativeUNL
+- NonFungibleTokensV1_1
+- PermissionedDEX
+- PermissionedDomains
+- PriceOracle
+- RequireFullyCanonicalSig
+- TicketBatch
+- TokenEscrow
+- XRPFees
+- fix1513
+- fix1515
+- fix1543
+- fix1571
+- fix1578
+- fix1623
+- fix1781
+- fixAMMClawbackRounding
+- fixAMMOverflowOffer
+- fixAMMv1_1
+- fixAMMv1_2
+- fixAMMv1_3
+- fixAmendmentMajorityCalc
+- fixCheckThreading
+- fixCleanup3_1_3
+- fixCleanup3_2_0
+- fixDirectoryLimit
+- fixDisallowIncomingV1
+- fixEmptyDID
+- fixEnforceNFTokenTrustline
+- fixEnforceNFTokenTrustlineV2
+- fixFillOrKill
+- fixFrozenLPTokenTransfer
+- fixIncludeKeyletFields
+- fixInnerObjTemplate
+- fixInnerObjTemplate2
+- fixInvalidTxFlags
+- fixMPTDeliveredAmount
+- fixMasterKeyAsRegularKey
+- fixNFTokenPageLinks
+- fixNFTokenRemint
+- fixNFTokenReserve
+- fixNonFungibleTokensV1_2
+- fixPayChanCancelAfter
+- fixPayChanRecipientOwnerDir
+- fixPreviousTxnID
+- fixPriceOracleOrder
+- fixQualityUpperBound
+- fixReducedOffersV1
+- fixReducedOffersV2
+- fixRemoveNFTokenAutoTrustLine
+- fixRmSmallIncreasedQOffers
+- fixSTAmountCanonicalize
+- fixTakerDryOfferRemoval
+- fixTokenEscrowV1
+- fixTrustLinesToSelf
+- fixUniversalNumber
+
+### Disabled / absent on the connected node
+
+- BatchV1_1
+- ConfidentialTransfer
+- CryptoConditions
+- CryptoConditionsSuite
+- DynamicMPT
+- EnforceInvariants
+- Escrow
+- FeeEscalation
+- LendingProtocol
+- MultiSign
+- PayChan
+- PermissionDelegationV1_1
+- SingleAssetVault
+- SortedDirectories
+- Sponsor
+- TickSize
+- TrustSetAuth
+- XChainBridge
+- fix1201
+- fix1368
+- fix1373
+- fix1512
+- fix1523
+- fix1528
+- fixCleanup3_3_0
+- fixXChainRewardRounding
+
+### Used by this rehearsal
+
+- AMM
+- AMMClawback
+- fixAMMv1_1
+- fixAMMv1_2
+- fixAMMv1_3
+- MPTokensV1
+- Clawback
+- DeepFreeze
+- Credentials
+- PermissionedDomains
+- PermissionedDEX
+- TokenEscrow
+- fixTokenEscrowV1
+- Checks
+- fixMPTDeliveredAmount
+
+### Refused (not faked)
+
+- LendingProtocol
+- SingleAssetVault
+- BatchV1_1
+- DynamicMPT
+- ConfidentialTransfer
+- Sponsor
+- PermissionDelegationV1_1
+- fixCleanup3_3_0
+- MPTokensV2
+
+Escrow / PayChan / MultiSign listing `enabled=false` is treated as a legacy/retired object listing. Settlement proof is TokenEscrow of issued AFX, not a fake Escrow vote. Official MPT docs still say DEX trading of MPTs is not implemented; this repo does not place MPT in AMM or OfferCreate.
+
+## Token
+
+| Field | Value |
+| --- | --- |
+| public name | Atlas Forge XRPL Test Token |
+| public ticker | AFXT |
+| classic IOU code | AFX |
+| MPT metadata ticker | AFXT |
+| MPT asset_class | other |
+| MPT issuance id | 01356F6C60ABB0DFCBE2216708EDC8DF0FAE2A9BACFDD4E6 |
+
+XRPL classic IOU currency codes that use the ISO-style encoding are exactly 3 characters. AFXT is 4 characters, so it cannot be the ledger currency code. This rehearsal uses AFX on trust lines and Payments. The public ticker AFXT lives in product copy and in MPT metadata only.
+
+## Accounts (classic addresses only)
+
+| Role | Address |
+| --- | --- |
+| issuer | [r9F9Y5wwH99FdQQn29nQ1YR1zvkNQVkXj2](https://testnet.xrpl.org/accounts/r9F9Y5wwH99FdQQn29nQ1YR1zvkNQVkXj2) |
+| alice | [rUqNcegWgarquK4cz1odqRZVm6XBdsESwM](https://testnet.xrpl.org/accounts/rUqNcegWgarquK4cz1odqRZVm6XBdsESwM) |
+| bob | [rsi8CX4BzN3sm6QPUZLbRVGrM2RYz2nQQa](https://testnet.xrpl.org/accounts/rsi8CX4BzN3sm6QPUZLbRVGrM2RYz2nQQa) |
+| unauthorized | [rUC2uuKZQC3DdAinPJN6ukjPyaR6bZAPXR](https://testnet.xrpl.org/accounts/rUC2uuKZQC3DdAinPJN6ukjPyaR6bZAPXR) |
+
+Seeds are not printed, logged, or committed.
+
+## Objects
+
+| Object | Value |
+| --- | --- |
+| AMM account | rHqgAqxFBKZz2HhcjT9dTR7JaaVfri6JVG |
+| Permissioned domain | 62DDA9A4F9D617633204AED9B7D8FA1FD202706CC25221C2430FB952853FD5EE |
+| Credential type (hex) | 414658545F52454845415253414C |
+| TokenEscrow finish | owner rUqNcegWgarquK4cz1odqRZVm6XBdsESwM seq 20279159 |
+| TokenEscrow cancel | owner rUqNcegWgarquK4cz1odqRZVm6XBdsESwM seq 20279160 |
+
+## Happy-path transactions
+
+| Label | Type | Result | Ledger | Explorer |
+| --- | --- | --- | --- | --- |
+| asfAllowTrustLineClawback | `AccountSet` | `tesSUCCESS` | 20279165 | [B624A308EA86FAB8F62A98A434459992BB77FD548AF8B328523D14BDE179B34A](https://testnet.xrpl.org/transactions/B624A308EA86FAB8F62A98A434459992BB77FD548AF8B328523D14BDE179B34A) |
+| asfAllowTrustLineLocking | `AccountSet` | `tesSUCCESS` | 20279167 | [0A2725A389BDEF11F718A9819168D591EC9D72F9EB6D1CC2132D225995BCD774](https://testnet.xrpl.org/transactions/0A2725A389BDEF11F718A9819168D591EC9D72F9EB6D1CC2132D225995BCD774) |
+| asfDefaultRipple | `AccountSet` | `tesSUCCESS` | 20279168 | [1845BACF732FC23921D12D9519ACABF7393546AFD58BFCE49815638CE4D12BB4](https://testnet.xrpl.org/transactions/1845BACF732FC23921D12D9519ACABF7393546AFD58BFCE49815638CE4D12BB4) |
+| trustset_alice | `TrustSet` | `tesSUCCESS` | 20279170 | [E1AFDCB3431AA8B2B8B08C4D1209DD99B5946E6377445BA18C7C82DF3043B88F](https://testnet.xrpl.org/transactions/E1AFDCB3431AA8B2B8B08C4D1209DD99B5946E6377445BA18C7C82DF3043B88F) |
+| trustset_bob | `TrustSet` | `tesSUCCESS` | 20279172 | [3B39509A114C51B8A55AE554F49B8BC597C8688EDBAA8DEA0F88212BAACA0E81](https://testnet.xrpl.org/transactions/3B39509A114C51B8A55AE554F49B8BC597C8688EDBAA8DEA0F88212BAACA0E81) |
+| trustset_unauthorized | `TrustSet` | `tesSUCCESS` | 20279174 | [9F590CC2B0318A35C02C6CDF9041E5E93E8BC53AE9F14CFA62ADBA25573DB6C1](https://testnet.xrpl.org/transactions/9F590CC2B0318A35C02C6CDF9041E5E93E8BC53AE9F14CFA62ADBA25573DB6C1) |
+| issue_alice | `Payment` | `tesSUCCESS` | 20279175 | [F9449097654CED145A56242311FEC0DC58A388F67F0BB8471F51CBFA417CA642](https://testnet.xrpl.org/transactions/F9449097654CED145A56242311FEC0DC58A388F67F0BB8471F51CBFA417CA642) |
+| issue_bob | `Payment` | `tesSUCCESS` | 20279177 | [6E7450F16CA2D23FA7CB51825E38BB3DAE909083C8A713EF927761C86D029BFA](https://testnet.xrpl.org/transactions/6E7450F16CA2D23FA7CB51825E38BB3DAE909083C8A713EF927761C86D029BFA) |
+| issue_unauthorized | `Payment` | `tesSUCCESS` | 20279178 | [5C0CCC2D9D231B52A6E2D9758B15B5EAC0551205A1E9E05E4672A965E93FC75C](https://testnet.xrpl.org/transactions/5C0CCC2D9D231B52A6E2D9758B15B5EAC0551205A1E9E05E4672A965E93FC75C) |
+| mpt_create | `MPTokenIssuanceCreate` | `tesSUCCESS` | 20279179 | [047436B327EAE6BCD9F2331B84CEC3D4BBC5AB5CA7C27153DADBEBCDE53448E0](https://testnet.xrpl.org/transactions/047436B327EAE6BCD9F2331B84CEC3D4BBC5AB5CA7C27153DADBEBCDE53448E0) |
+| hold_alice_to_bob | `Payment` | `tesSUCCESS` | 20279182 | [EDBE5FF56F1CB3B82B3A53399AA0F157A733CE89CC4E07D83325F570861D7966](https://testnet.xrpl.org/transactions/EDBE5FF56F1CB3B82B3A53399AA0F157A733CE89CC4E07D83325F570861D7966) |
+| mpt_authorize_alice | `MPTokenAuthorize` | `tesSUCCESS` | 20279184 | [1E97ACF07539DE08379AF6A19A71CBDCC2CF675A60305DEF990E504A820EF2F0](https://testnet.xrpl.org/transactions/1E97ACF07539DE08379AF6A19A71CBDCC2CF675A60305DEF990E504A820EF2F0) |
+| mpt_allowlist_alice | `MPTokenAuthorize` | `tesSUCCESS` | 20279186 | [6CBE6C97069CA694411AA71744B9D3F7D753B238A843D9CD11A3C40B1CD00509](https://testnet.xrpl.org/transactions/6CBE6C97069CA694411AA71744B9D3F7D753B238A843D9CD11A3C40B1CD00509) |
+| mpt_authorize_bob | `MPTokenAuthorize` | `tesSUCCESS` | 20279188 | [4E4AA45DD38C1A0CB3ABD612BBC45A72316D1EFB46C746AD741596490898C0DD](https://testnet.xrpl.org/transactions/4E4AA45DD38C1A0CB3ABD612BBC45A72316D1EFB46C746AD741596490898C0DD) |
+| mpt_allowlist_bob | `MPTokenAuthorize` | `tesSUCCESS` | 20279189 | [DF84B56642E5F6BAAF36A05515F57C6EF34CC0E1EDF2137E7C5429B9CC276E68](https://testnet.xrpl.org/transactions/DF84B56642E5F6BAAF36A05515F57C6EF34CC0E1EDF2137E7C5429B9CC276E68) |
+| mpt_pay_alice | `Payment` | `tesSUCCESS` | 20279191 | [53405BA5DB38621DE46B54B75A6AE715CF43629EC3386E849467EED75D6C9B70](https://testnet.xrpl.org/transactions/53405BA5DB38621DE46B54B75A6AE715CF43629EC3386E849467EED75D6C9B70) |
+| mpt_pay_bob | `Payment` | `tesSUCCESS` | 20279193 | [529E3BB80CE3B99FC62D84E90DF964A48B9FE20C2F1DB17D49FA9D968A2C746F](https://testnet.xrpl.org/transactions/529E3BB80CE3B99FC62D84E90DF964A48B9FE20C2F1DB17D49FA9D968A2C746F) |
+| amm_create | `AMMCreate` | `tesSUCCESS` | 20279195 | [261B7FAEC9DE7D5604E90A764E50EA330F24087A44E7E546008095D976F953B2](https://testnet.xrpl.org/transactions/261B7FAEC9DE7D5604E90A764E50EA330F24087A44E7E546008095D976F953B2) |
+| amm_deposit | `AMMDeposit` | `tesSUCCESS` | 20279197 | [55A8693DAC236C92D27C7590EF01F61C0C7DE7B2C7311A7CD18C00EA27BE62CE](https://testnet.xrpl.org/transactions/55A8693DAC236C92D27C7590EF01F61C0C7DE7B2C7311A7CD18C00EA27BE62CE) |
+| amm_swap_payment | `Payment` | `tesSUCCESS` | 20279199 | [92AE9EDE6267494E08D783ED0E9169D4E97D651CC65B773500DE86EEFA1463B2](https://testnet.xrpl.org/transactions/92AE9EDE6267494E08D783ED0E9169D4E97D651CC65B773500DE86EEFA1463B2) |
+| credential_create | `CredentialCreate` | `tesSUCCESS` | 20279201 | [1A84FDBA9498940B2FE2AB7934DA602E242469D0C372C82493D81D8E96A9C9BF](https://testnet.xrpl.org/transactions/1A84FDBA9498940B2FE2AB7934DA602E242469D0C372C82493D81D8E96A9C9BF) |
+| credential_accept | `CredentialAccept` | `tesSUCCESS` | 20279203 | [B8039CB8D089C136FFF02D6EC7C54C8EC5F77E940733B59EA84B621C603F4DAE](https://testnet.xrpl.org/transactions/B8039CB8D089C136FFF02D6EC7C54C8EC5F77E940733B59EA84B621C603F4DAE) |
+| permissioned_domain_set | `PermissionedDomainSet` | `tesSUCCESS` | 20279205 | [C86C85067F1F0E023AC57D48845DD34F5FD625C0554F584BBC3F2DB9666EB5CA](https://testnet.xrpl.org/transactions/C86C85067F1F0E023AC57D48845DD34F5FD625C0554F584BBC3F2DB9666EB5CA) |
+| domain_offer_alice | `OfferCreate` | `tesSUCCESS` | 20279206 | [B42DF871565A367B31DABA5382027F7C52156033FBAC500DA16D22975461F924](https://testnet.xrpl.org/transactions/B42DF871565A367B31DABA5382027F7C52156033FBAC500DA16D22975461F924) |
+| escrow_create_finish | `EscrowCreate` | `tesSUCCESS` | 20279210 | [91551CAD71CFDE2D03BAC7C3622147D8C762DB3EC03D2BAE14F707B89193338C](https://testnet.xrpl.org/transactions/91551CAD71CFDE2D03BAC7C3622147D8C762DB3EC03D2BAE14F707B89193338C) |
+| escrow_finish | `EscrowFinish` | `tesSUCCESS` | 20279218 | [F075FB358962E985378E57C740A3E176E9DDA5FF7830F903657AD0EE5AF13ABA](https://testnet.xrpl.org/transactions/F075FB358962E985378E57C740A3E176E9DDA5FF7830F903657AD0EE5AF13ABA) |
+| escrow_create_cancel | `EscrowCreate` | `tesSUCCESS` | 20279219 | [BB542221A21CAF2AACC8ABA544847BA8F43CEB03B1565747D9577D9ED2A1E0A3](https://testnet.xrpl.org/transactions/BB542221A21CAF2AACC8ABA544847BA8F43CEB03B1565747D9577D9ED2A1E0A3) |
+| escrow_cancel | `EscrowCancel` | `tesSUCCESS` | 20279227 | [20011ED12363BF5A217ACE3C20CBCBCFFD086DBAA8570CD487A0880959A19580](https://testnet.xrpl.org/transactions/20011ED12363BF5A217ACE3C20CBCBCFFD086DBAA8570CD487A0880959A19580) |
+| deep_freeze_unauthorized | `TrustSet` | `tesSUCCESS` | 20279234 | [524A5D4E3A62EBD1BB222792D3206ECDB0D1FFF25CC653405536B01DBC4BD3E3](https://testnet.xrpl.org/transactions/524A5D4E3A62EBD1BB222792D3206ECDB0D1FFF25CC653405536B01DBC4BD3E3) |
+| clawback_iou_bob | `Clawback` | `tesSUCCESS` | 20279235 | [92149681A37FB8E7FD3173AAECB5BDF3A1F3B8CD3F186DAB2F421481C6AB8943](https://testnet.xrpl.org/transactions/92149681A37FB8E7FD3173AAECB5BDF3A1F3B8CD3F186DAB2F421481C6AB8943) |
+| mpt_lock_bob | `MPTokenIssuanceSet` | `tesSUCCESS` | 20279237 | [3A9B69DF5FF070FE5CEDF3076A8A7BEC12DDB230DFFF7FCE0EAD344DCE68EA2D](https://testnet.xrpl.org/transactions/3A9B69DF5FF070FE5CEDF3076A8A7BEC12DDB230DFFF7FCE0EAD344DCE68EA2D) |
+| clawback_mpt_bob | `Clawback` | `tesSUCCESS` | 20279239 | [A38D96ABA6A0F158952EF5C98BC129A23C5583A7D411DF1BC62F3FCC1B77B971](https://testnet.xrpl.org/transactions/A38D96ABA6A0F158952EF5C98BC129A23C5583A7D411DF1BC62F3FCC1B77B971) |
+| deny_escrow_create | `EscrowCreate` | `tesSUCCESS` | 20279246 | [E208406D69A1EA8FA0C57AC1D668172117CB2970253FA241C761AC656380647C](https://testnet.xrpl.org/transactions/E208406D69A1EA8FA0C57AC1D668172117CB2970253FA241C761AC656380647C) |
+
+## Deny-path transactions (expected failures)
+
+| Label | Type | Result | Ledger | Explorer |
+| --- | --- | --- | --- | --- |
+| domain_offer_unauthorized | `OfferCreate` | `tecNO_PERMISSION` | 20279207 | [D00A1E78181122AD164F796604B7AB973055E070A2158C3170FD34FBA0743929](https://testnet.xrpl.org/transactions/D00A1E78181122AD164F796604B7AB973055E070A2158C3170FD34FBA0743929) |
+| deny_unauthorized_clawback | `Clawback` | `tecNO_PERMISSION` | 20279241 | [43A512E958FC298544BD6FB4880FB210B457FD7F2E1D37B8D6F43E00EDC66238](https://testnet.xrpl.org/transactions/43A512E958FC298544BD6FB4880FB210B457FD7F2E1D37B8D6F43E00EDC66238) |
+| deny_frozen_payment | `Payment` | `tecPATH_DRY` | 20279242 | [2FD25FD3F5448B589A01B2E74D7F71814966AFDFF8C15354BDC21328D7AB5DD8](https://testnet.xrpl.org/transactions/2FD25FD3F5448B589A01B2E74D7F71814966AFDFF8C15354BDC21328D7AB5DD8) |
+| deny_mpt_without_authorize | `Payment` | `tecNO_AUTH` | 20279244 | [F3ACFB96CED73958D784FA90096215BB3F613A97119B431EA72B771AED48289B](https://testnet.xrpl.org/transactions/F3ACFB96CED73958D784FA90096215BB3F613A97119B431EA72B771AED48289B) |
+| deny_escrow_finish_too_early | `EscrowFinish` | `tecNO_PERMISSION` | 20279247 | [A97DEBEF429DCA531828B3ED2262C54B6EEADBECC75380C7B4A1693384D3CD7F](https://testnet.xrpl.org/transactions/A97DEBEF429DCA531828B3ED2262C54B6EEADBECC75380C7B4A1693384D3CD7F) |
+
+Recorded expected-failure count: **5**.
+
+DeepFreeze deny is recorded as whatever `tec*` the connected 3.3.0 engine returned. On this rehearsal the frozen-holder Payment was `tecPATH_DRY` (validated): the AFX path from the DeepFrozen trust line could not deliver. That is not invented as `tecFROZEN`.
+
+## Honesty
+
+- Testnet only. No mainnet.
+- Not RLUSD, not a USD peg, not an issuance product.
+- Native XRPL. Not an EVM sidechain. Not Solidity.
+- Hooks are not XRPL; this repo does not use or claim Hooks.
+- issuer is centralized; test token; no peg.
+

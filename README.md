@@ -6,11 +6,14 @@ This is a Testnet rehearsal. It is **not** an issuance, **not** a peg, **not** r
 
 | Recruiter fact | Value |
 | --- | --- |
-| Ledger | XRP Ledger Testnet (`network_id` 1) — re-probe on connect |
+| Ledger | XRP Ledger Testnet (`network_id` 1), xrpld **3.3.0** |
+| Status | **EXECUTED** — [PUBLIC_TESTNET_REPORT.md](PUBLIC_TESTNET_REPORT.md) |
 | Public name | Atlas Forge XRPL Test Token |
 | Public ticker | AFXT |
 | Classic IOU code | AFX (3-character ISO limit; AFXT cannot be the ISO code) |
-| MPT companion | AFXT metadata, `asset_class other` (not rwa, not stablecoin) |
+| MPT companion | AFXT metadata, `asset_class other`, issuance `01356F6C60ABB0DFCBE2216708EDC8DF0FAE2A9BACFDD4E6` |
+| Issuer | [r9F9Y5wwH99FdQQn29nQ1YR1zvkNQVkXj2](https://testnet.xrpl.org/accounts/r9F9Y5wwH99FdQQn29nQ1YR1zvkNQVkXj2) |
+| AMM AFX/XRP | [rHqgAqxFBKZz2HhcjT9dTR7JaaVfri6JVG](https://testnet.xrpl.org/accounts/rHqgAqxFBKZz2HhcjT9dTR7JaaVfri6JVG) |
 | Stack | TypeScript strict, `xrpl` 5.1.0, native tx types |
 | CI | `npm test` unit only; integration skipped unless `XRPL_SMOKE=1` |
 | License | MIT |

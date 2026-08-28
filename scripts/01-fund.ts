@@ -43,14 +43,23 @@ async function main(): Promise<void> {
       log("funding", role, wallet.classicAddress);
       const funded = await fundClassicAccount(wallet.classicAddress);
       log("faucet submitted", role, funded.hash ?? "(no hash field)", funded.amount ?? "");
-      for (let i = 0; i < 20; i += 1) {
+      let visible = false;
+      for (let i = 0; i < 30; i += 1) {
         await sleep(2000);
-        if (await accountExists(client, wallet.classicAddress)) {
-          const drops = await xrpBalanceDrops(client, wallet.classicAddress);
-          if (drops > 0n) break;
+        try {
+          if (await accountExists(client, wallet.classicAddress)) {
+            const drops = await xrpBalanceDrops(client, wallet.classicAddress);
+            if (drops > 0n) {
+              visible = true;
+              break;
+            }
+          }
+        } catch (error) {
+          const message = error instanceof Error ? error.message : String(error);
+          if (!/not found|actNotFound/i.test(message)) throw error;
         }
       }
-      if (!(await accountExists(client, wallet.classicAddress))) {
+      if (!visible) {
         throw new BlockedError(`funded ${role} but account not visible yet`);
       }
     }

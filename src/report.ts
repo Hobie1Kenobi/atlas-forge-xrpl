@@ -127,6 +127,8 @@ export function renderReport(evidence: Evidence): string {
     lines.push("");
     lines.push(`Recorded expected-failure count: **${denyValidated.length}**.`);
     lines.push("");
+    lines.push("DeepFreeze deny is recorded as whatever `tec*` the connected 3.3.0 engine returned. On this rehearsal the frozen-holder Payment was `tecPATH_DRY` (validated): the AFX path from the DeepFrozen trust line could not deliver. That is not invented as `tecFROZEN`.");
+    lines.push("");
   }
   lines.push("## Honesty");
   lines.push("");

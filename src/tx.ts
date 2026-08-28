@@ -103,10 +103,18 @@ export async function accountExists(
   address: string,
 ): Promise<boolean> {
   try {
-    await client.request({ command: "account_info", account: address });
-    return true;
-  } catch {
-    return false;
+    const info = await client.request({
+      command: "account_info",
+      account: address,
+      ledger_index: "validated",
+    });
+    return Boolean(info.result.account_data.Account);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    if (/not found|actNotFound/i.test(message)) {
+      return false;
+    }
+    throw error;
   }
 }
 
