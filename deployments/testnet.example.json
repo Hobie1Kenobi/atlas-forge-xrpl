@@ -1,0 +1,50 @@
+{
+  "status": "INCOMPLETE",
+  "disclaimer": "issuer is centralized; test token; no peg. Testnet rehearsal only. Not an issuance.",
+  "network": {
+    "name": "testnet",
+    "wss": "wss://s.altnet.rippletest.net:51233/",
+    "rpc": "https://s.altnet.rippletest.net:51234/",
+    "explorer": "https://testnet.xrpl.org",
+    "build_version": "",
+    "network_id": 1,
+    "server_state": "",
+    "validated_ledger": 0,
+    "complete_ledgers": "",
+    "probed_at": ""
+  },
+  "amendments": {
+    "enabled": [],
+    "disabled": [],
+    "used": [],
+    "refused": []
+  },
+  "accounts": {
+    "issuer": "",
+    "alice": "",
+    "bob": "",
+    "unauthorized": ""
+  },
+  "token": {
+    "public_name": "Atlas Forge XRPL Test Token",
+    "public_ticker": "AFXT",
+    "classic_currency": "AFX",
+    "mpt_ticker": "AFXT",
+    "mpt_asset_class": "other",
+    "mpt_issuance_id": ""
+  },
+  "objects": {
+    "amm_account": "",
+    "domain_id": "",
+    "credential_type_hex": "",
+    "escrow_finish_owner": "",
+    "escrow_finish_sequence": 0,
+    "escrow_cancel_owner": "",
+    "escrow_cancel_sequence": 0,
+    "deny_escrow_owner": "",
+    "deny_escrow_sequence": 0
+  },
+  "happy_path": {},
+  "deny_path": {},
+  "blocked_error": ""
+}

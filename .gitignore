@@ -1,0 +1,17 @@
+.env
+.env.local
+.env.*.local
+seeds/
+keystores/
+*.seed
+broadcast/
+dumps/
+*.dump.json
+node_modules/
+dist/
+coverage/
+.DS_Store
+*.log
+npm-debug.log*
+.tsx
+.cache/
